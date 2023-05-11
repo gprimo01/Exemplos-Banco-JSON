@@ -1,0 +1,41 @@
+db.users.insertOne({
+    id: 1,
+    nome: "giovanni",
+    login: "giovannilima",
+    senha: "giovanni123",
+    ativo: true,
+    admin: false,
+    acessos: ["acesso1", "acesso2"]
+  });
+  
+  db.users.insertOne({
+    id: 2,
+    nome: "leonardo",
+    login: "lernardobastos",
+    senha: "leonardo123",
+    ativo: false,
+    admin: true,
+    acessos: ["acesso2", "acesso3"]
+  });
+  
+  // Buscar todos os usuários
+  db.users.find();
+  
+  // Buscar usuários com o campo "ativo" igual a true
+  db.users.find({ ativo: true });
+  
+  // Buscar usuários com o campo "admin" igual a true
+  db.users.find({ admin: true });
+  
+  // Buscar usuários com o campo "acessos" contendo o valor "acesso2"
+  db.users.find({ acessos: "acesso2" });
+  
+  // Buscar usuários com o campo "acessos" contendo qualquer um dos valores "acesso1" ou "acesso3"
+  db.users.find({ acessos: { $in: ["acesso1", "acesso3"] } });
+  
+  // Buscar usuários com o campo "nome" contendo a string "giovanni"
+  db.users.find({ nome: "giovanni" });
+  1
+  // Buscar usuários com o campo "senha" igual a "giovanni123" e o campo "ativo" igual a true
+  db.users.find({ senha: "giovanni123", ativo: true });
+  
